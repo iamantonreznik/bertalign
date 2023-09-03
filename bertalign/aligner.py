@@ -1,5 +1,5 @@
 import numpy as np
-
+from nltk import sent_tokenize
 from bertalign import model
 from bertalign.corelib import *
 from bertalign.utils import *
@@ -84,10 +84,13 @@ class Bertalign:
         self.result = second_alignment
     
     def print_sents(self):
-        for bead in (self.result):
+        result = dict()
+        for num, bead in enumerate(self.result):
             src_line = self._get_line(bead[0], self.src_sents)
             tgt_line = self._get_line(bead[1], self.tgt_sents)
             print(src_line + "\n" + tgt_line + "\n")
+            result.update({num+1: [sent_tokenize(src_line), tgt_line]})
+        return result
 
     @staticmethod
     def _get_line(bead, lines):
