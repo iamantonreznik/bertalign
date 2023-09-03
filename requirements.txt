@@ -1,6 +1,6 @@
-numba==0.56.4
-#faiss-cpu==1.7.2
-faiss-gpu==1.7.2
+numba==0.57.1
+faiss-cpu==1.7.2
+#faiss-gpu==1.7.2
 langdetect==1.0.9
 nltk==3.8.1
 sentence-splitter==1.4
